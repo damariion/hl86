@@ -1,0 +1,33 @@
+{
+
+    "jmp.up"       : {"prefix": ["ja", "jg", "jnbe", "jnle"],     "body": "if (${1:a} > ${2:b}):\n\n\t${0}\n\nelse:\n\t... idk"},
+    "jmp.up!"      : {"prefix": ["ja!", "jg!", "jnbe!", "jnle!"], "body": "if (${1:a} > ${2:b})\n\t... irr\nelse:\n\n\t${0}"},
+    "jmp.up-eq"    : {"prefix": ["jae", "jge", "jnb", "jnl"],     "body": "if (${1:a} >= ${2:b}):\n\n\t${0}\n\nelse:\n\t... idk"},
+    "jmp.up.eq!"   : {"prefix": ["jae!", "jge!", "jnb!", "jnl!"], "body": "if (${1:a} >= ${2:b})\n\t... irr\nelse:\n\n\t${0}"},
+    "jmp.down"     : {"prefix": ["jb", "jl", "jnae", "jnge"],     "body": "if (${1:a} < ${2:b}):\n\n\t${0}\n\nelse:\n\t... idk"},
+    "jmp.down!"    : {"prefix": ["jb!", "jl!", "jnae!", "jnge!"], "body": "if (${1:a} < ${2:b})\n\t... irr\nelse:\n\n\t${0}"},
+    "jmp.down-eq"  : {"prefix": ["jbe", "jle", "jna", "jng"],     "body": "if (${1:a} <= ${2:b}):\n\n\t${0}\n\nelse:\n\t... idk"},
+    "jmp.down-eq!" : {"prefix": ["jbe!", "jle!", "jna!", "jng!"], "body": "if (${1:a} <= ${2:b})\n\t... irr\nelse:\n\n\t${0}"},
+    "jmp.eq"       : {"prefix": ["je", "jz"],                     "body": "if (${1:a} == ${2:b}):\n\n\t${0}\n\nelse:\n\t... idk"},
+    "jmp.eq!"      : {"prefix": ["je!", "jz!"],                   "body": "if (${1:a} == ${2:b})\n\t... irr\nelse:\n\n\t${0}"},
+    "jmp.neq"      : {"prefix": ["jne", "jnz"],                   "body": "if (${1:a} != ${2:b}):\n\n\t${0}\n\nelse:\n\t... idk"},
+    "jmp.neq!"     : {"prefix": ["jne!", "jnz!"],                 "body": "if (${1:a} != ${2:b})\n\t... irr\nelse:\n\n\t${0}"},
+    
+    "jmp"  : {"prefix": ["jmp", "goto"], "body": "goto this->${0:00}"},
+    "jmpx" : {"prefix": ["jmpx", "gotox"], "body": "goto ${1:this}->${0:00}"},
+
+    "std!memcpy"  : {"prefix": "std!memcpy",  "body": "std!memcpy(dest: ${1:irr}, src: ${2:irr}, count: ${3:irr})\n${0}"},
+    "std!memmove" : {"prefix": "std!memmove", "body": "std!memmove(dest: ${1:irr}, src: ${2:irr}, count: ${3:irr})\n${0}"},
+    "std!memset"  : {"prefix": "std!memset",  "body": "std!memset(dest: ${1:irr}, value: ${2:irr}, count: ${3:irr})\n${0}"},
+    "std!memcmp"  : {"prefix": "std!memcmp",  "body": "std!memcmp(buf1: ${1:irr}, buf2: ${2:irr}, count: ${3:irr})\n${0}"},
+    "std!strlen"  : {"prefix": "std!strlen",  "body": "std!strlen(str: ${1:irr})\n${0}"},
+    "std!strcmp"  : {"prefix": "std!strcmp",  "body": "std!strcmp(lhs: ${1:irr}, rhs: ${2:irr})\n${0}"},
+    "std!strncmp" : {"prefix": "std!strncmp", "body": "std!strncmp(lhs: ${1:irr}, rhs: ${2:irr}, count: ${3:irr})\n${0}"},
+    "std!malloc"  : {"prefix": "std!malloc",  "body": "std!malloc(size: ${1:irr})\n${0}"},
+    "std!free"    : {"prefix": "std!free",    "body": "std!free(memblock: ${1:irr})\n${0}"},
+
+    "ofs" : {"prefix": "ofs", "body": "<<< +${1:00}:\n\n\t${0}"},
+    "fn"  : {"prefix": "fn",  "body": "${3:ns}!${4:fn}()\n{\n<<< +${1:00}:\n\n\t${2}\n}"},
+    "fnc"  : {"prefix": "fnc",  "body": "eax = ${1}!${2}(${0})"}
+
+}

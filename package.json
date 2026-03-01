@@ -1,0 +1,33 @@
+{
+  "name": "hl86",
+  "displayName": "hl86",
+  "author": "Damarion",
+  "publisher": "Damarion",
+  "description": "Syntax highlighting for my self-defined pseudo-language",
+  "icon": "assets/icon.png",
+  "version": "0.5.2",
+  "engines": {
+    "vscode": "^1.109.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "hl86",
+      "aliases": ["hl86", "hl86"],
+      "extensions": [".hl86"]
+    }],
+    "grammars": [{
+      "language": "hl86",
+      "scopeName": "source.hl86",
+      "path": "./syntaxes/detection.json"
+    }],
+    "snippets": [
+      {
+        "language": "hl86",
+        "path": "./syntaxes/completion.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "hl86",
+	"patterns": [
+
+		{"include": "#annotation.offset"},
+		{"include": "#annotation.comment"},
+		{"include": "#annotation.variable"},
+		{"include": "#annotation.descriptor"},
+		
+		{"include": "#generic.symbol"},
+		{"include": "#generic.control"},
+		{"include": "#generic.function"},
+
+		{"include": "#primitive.numeric"},
+		{"include": "#primitive.constant"},
+		{"include": "#primitive.boolean"},
+		{"include": "#primitive.string"},
+
+		{"include": "#container.variable"},
+		{"include": "#container.register"}
+
+	],
+	"repository": {
+
+		"generic.symbol"  	    : {"name": "keyword.operator", 	   		"match" : "[+*/^!%&=@,\\-]"},
+		"generic.control" 	    : {"name": "keyword.control",      		"match" : "\\b(if|else|goto|return)\\b"},
+		"generic.function"	    : {"name": "entity.name.function", 		"match" : "\\b((\\w+!\\w+)|(this))\\b"},
+
+		"primitive.numeric"		: {"name": "constant.numeric", 	   		"match" : "\\b[0-9A-Fa-f]+\\b"},
+		"primitive.constant"	: {"name": "entity.name.class", 		"match" : "\\$\\w+!\\w+"},
+		"primitive.boolean"		: {"name": "constant.language.boolean", "match" : "\\b(true|false)\\b"},
+		"primitive.string"		: {"name": "string", 					"match" : "('.*?')|(\".*?\")"},
+		
+		"container.variable" 	: {"name": "entity.name.class", 		"match" : "\\b(arg|var)\\s[0-9a-fA-F]+\\b"},
+		"container.register" 	: {"name": "entity.name.class",			"match" : "\\b((e*(([abcd]x)|([sd]i)|([sb]p)))|([abcd][hl]))\\b"},
+		
+		"annotation.descriptor"	: {"name": "markup.bold",				"match" : "\\b(desc|vuln|irr|idk|entry)\\b"},
+		"annotation.variable"	: {"name": "markup.italic", 			"match" : "~\\w+"},
+		"annotation.comment"	: {"name": "comment.line",				"match" : "//.*"},
+		"annotation.offset"		: {"name": "markup.underline.link",		"match" : "^<{3}\\s\\+[0-9A-Fa-f]+:"}
+
+	},
+
+	"scopeName": "source.hl86"
+
+}
